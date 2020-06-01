@@ -82,7 +82,6 @@ for i in range(9):
                     s.add(sudoku[i][j] - sudoku[i1][j1] != 1)
                     s.add(sudoku[i][j] - sudoku[i1][j1] != -1)
 
-# Note: either parameter makes solution unique
 s.add(sudoku[4][2] == 1)
 s.add(sudoku[5][6] == 2)
 
@@ -95,10 +94,9 @@ while s.check() == z3.sat:
         print(" ".join([str(model[sudoku[row][column]]) for column in range(9)]))
 
     # Exclude current solution to find the next one
-    for i in range(9):
-        for j in range(9):
-            v = sudoku[i][j]
-            s.add(v != model[v])
+    s.add(
+        z3.Or([sudoku[i][j] != model[sudoku[i][j]] for i in range(9) for j in range(9)])
+    )
 
 print("End")
 
