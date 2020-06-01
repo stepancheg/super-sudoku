@@ -17,7 +17,7 @@ for i in range(9):
     s.add(z3.Distinct([sudoku[i][j] for j in range(9)]))
     s.add(z3.Distinct([sudoku[j][i] for j in range(9)]))
 
-# Each of nine big squares should have have distinct digits
+# Each of nine big squares should have distinct digits
 for i in [0, 3, 6]:
     for j in [0, 3, 6]:
         s.add(z3.Distinct([sudoku[i + k][j + l] for k in range(3) for l in range(3)]))
