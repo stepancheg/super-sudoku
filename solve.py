@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Z3 solution of Miracle Sudoku
+# https://www.theguardian.com/science/2020/may/18/can-you-solve-it-sudoku-as-spectator-sport-is-unlikely-lockdown-hit
+
 import z3
 
 DIGITS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
